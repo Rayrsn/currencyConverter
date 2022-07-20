@@ -15,7 +15,6 @@
 ```bash
 go build
 ```
-* **The executable will be located in target/release/CurrencyConverter**
 
 ## Usage 💻
 ```bash
