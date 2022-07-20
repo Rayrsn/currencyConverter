@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -61,15 +62,21 @@ func main() {
 }
 
 func getFirstArg() string {
-	return os.Args[1]
+	var argument = os.Args[1]
+	argument = strings.ToUpper(argument)
+	return argument
 }
 
 func getSecondArg() string {
-	return os.Args[2]
+	var argument = os.Args[2]
+	argument = strings.ToUpper(argument)
+	return argument
 }
 
 func getThirdArg() string {
-	return os.Args[3]
+	var argument = os.Args[3]
+	argument = strings.ToUpper(argument)
+	return argument
 }
 
 func printResult(rates map[string]interface{}) {
