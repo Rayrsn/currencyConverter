@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strconv"
 )
 
 func main() {
@@ -18,6 +19,18 @@ func main() {
 		fmt.Println("Only one argument passed")
 		os.Exit(1)
 	}
+
+	if checkIfArgIsCurrency(getFirstArg()) {
+		if len(os.Args) > 3 {
+			fmt.Println("Excess aguments passed")
+			os.Exit(1)
+		}
+		if checkIfArgIsNumber(getSecondArg()) {
+			fmt.Println("Invalid second argument")
+			os.Exit(1)
+		}
+	}
+
 	var mainUrl string = "https://api.exchangerate.host/latest"
 	var response *http.Response
 	var err error
@@ -27,6 +40,8 @@ func main() {
 		if checkIfArgIsCurrency(getSecondArg()) {
 			url = mainUrl + "?" + "base=" + getFirstArg()
 		}
+	} else if checkIfArgIsNumber(getFirstArg()) {
+		url = mainUrl + "?" + "base=" + getSecondArg() + "&" + "amount=" + getFirstArg()
 	}
 
 	// get the response from the link
@@ -53,10 +68,23 @@ func getSecondArg() string {
 	return os.Args[2]
 }
 
+func getThirdArg() string {
+	return os.Args[3]
+}
+
 func printResult(rates map[string]interface{}) {
 	if checkIfArgIsCurrency(getFirstArg()) {
 		fmt.Println("1", getFirstArg(), "=", rates[getSecondArg()], getSecondArg())
+	} else if checkIfArgIsNumber(getFirstArg()) {
+		fmt.Println(getFirstArg(), getSecondArg(), "=", rates[getThirdArg()], getThirdArg())
 	}
+}
+
+func checkIfArgIsNumber(arg string) bool {
+	if _, err := strconv.ParseFloat(arg, 64); err == nil {
+		return true
+	}
+	return false
 }
 
 func checkIfArgIsCurrency(arg string) bool {
