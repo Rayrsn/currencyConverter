@@ -56,8 +56,7 @@ func main() {
 	var exchangeRate map[string]interface{}
 	json.NewDecoder(response.Body).Decode(&exchangeRate)
 	// get the value of the key "rates"
-	var rates map[string]interface{}
-	rates = exchangeRate["rates"].(map[string]interface{})
+	var rates map[string]interface{} = exchangeRate["rates"].(map[string]interface{})
 	// print the values
 	printResult(rates)
 }
