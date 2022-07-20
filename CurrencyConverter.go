@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	// Exit conditions
 	if len(os.Args) > 4 {
 		fmt.Println("Excess aguments passed")
 		os.Exit(1)
@@ -61,18 +62,21 @@ func main() {
 	printResult(rates)
 }
 
+// get the first argument
 func getFirstArg() string {
 	var argument = os.Args[1]
 	argument = strings.ToUpper(argument)
 	return argument
 }
 
+// get the second argument
 func getSecondArg() string {
 	var argument = os.Args[2]
 	argument = strings.ToUpper(argument)
 	return argument
 }
 
+// get the third argument
 func getThirdArg() string {
 	var argument = os.Args[3]
 	argument = strings.ToUpper(argument)
