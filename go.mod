@@ -1,3 +1,3 @@
-module github.com/Rayrsn/CurrencyConverter
+module github.com/Rayrsn/currencyConverter
 
 go 1.18
