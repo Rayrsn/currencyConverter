@@ -1,9 +1,9 @@
 <div align="center">
   
-# `💱 CurrencyConverter`
+# `💱 Currency Converter`
 ## **A CLI program that converts currencies**
 
-[![Status Badge](https://github.com/Rayrsn/CurrencyConverter/actions/workflows/go.yml/badge.svg)](https://github.com/Rayrsn/CurrencyConverter/actions/workflows/go.yml)
+[![Status Badge](https://github.com/Rayrsn/currencyConverter/actions/workflows/go.yml/badge.svg)](https://github.com/Rayrsn/currencyConverter/actions/workflows/go.yml)
 
 </div>
 
@@ -18,11 +18,11 @@ go build
 
 ## Usage 💻
 ```bash
-./CurrencyConverter usd eur
+./currencyConverter usd eur
 ```
 or alternatively
 ```bash
-./CurrencyConverter 10 usd eur
+./currencyConverter 10 usd eur
 ```
 
 
