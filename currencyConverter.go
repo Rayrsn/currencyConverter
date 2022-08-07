@@ -91,7 +91,7 @@ func getThirdArg() string {
 func printResult(rates map[string]interface{}) {
 	if checkIfArgIsCurrency(getFirstArg()) && checkIfArgIsCurrency(getSecondArg()) {
 		fmt.Println("1", getFirstArg(), "=", rates[getSecondArg()], getSecondArg())
-	} else if checkIfArgIsNumber(getFirstArg()) && checkIfArgIsCurrency(getFirstArg()) && checkIfArgIsCurrency(getSecondArg()) {
+	} else if checkIfArgIsNumber(getFirstArg()) && checkIfArgIsCurrency(getSecondArg()) && checkIfArgIsCurrency(getThirdArg()) {
 		fmt.Println(getFirstArg(), getSecondArg(), "=", rates[getThirdArg()], getThirdArg())
 	} else {
 		fmt.Println("Invalid arguments")
