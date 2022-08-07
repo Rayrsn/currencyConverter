@@ -41,9 +41,15 @@ func main() {
 	if checkIfArgIsCurrency(getFirstArg()) {
 		if checkIfArgIsCurrency(getSecondArg()) {
 			url = mainUrl + "?" + "base=" + getFirstArg()
+		} else {
+			fmt.Println("Second argument is not a currency")
+			os.Exit(1)
 		}
 	} else if checkIfArgIsNumber(getFirstArg()) {
 		url = mainUrl + "?" + "base=" + getSecondArg() + "&" + "amount=" + getFirstArg()
+	} else {
+		fmt.Println("Invalid arguments")
+		os.Exit(1)
 	}
 
 	// get the response from the link
@@ -83,10 +89,13 @@ func getThirdArg() string {
 }
 
 func printResult(rates map[string]interface{}) {
-	if checkIfArgIsCurrency(getFirstArg()) {
+	if checkIfArgIsCurrency(getFirstArg()) && checkIfArgIsCurrency(getSecondArg()) {
 		fmt.Println("1", getFirstArg(), "=", rates[getSecondArg()], getSecondArg())
-	} else if checkIfArgIsNumber(getFirstArg()) {
+	} else if checkIfArgIsNumber(getFirstArg()) && checkIfArgIsCurrency(getFirstArg()) && checkIfArgIsCurrency(getSecondArg()) {
 		fmt.Println(getFirstArg(), getSecondArg(), "=", rates[getThirdArg()], getThirdArg())
+	} else {
+		fmt.Println("Invalid arguments")
+		os.Exit(1)
 	}
 }
 
