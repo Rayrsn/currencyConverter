@@ -12,9 +12,18 @@
 
 
 ## Building 🔨
+* If you don't want to manually build the app, you can use:
+  * The [currencyconverter](https://aur.archlinux.org/packages/currencyconverter) AUR if you're on Arch
+  * Grab a binary from the [Artifacts](https://github.com/Rayrsn/currencyConverter/actions/runs/2876951092)
+
+Otherwise, you can build the program yourself by running:
+
+***Make sure you have Go installed***
+
 ```bash
 go build
 ```
+* **The executable will be located in the same directory you ran the command from**
 
 ## Usage 💻
 ```bash
