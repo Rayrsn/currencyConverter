@@ -21,7 +21,7 @@ func main() {
 		os.Exit(1)
 	} else if len(os.Args) == 2 {
 		if os.Args[1] == "-v" || os.Args[1] == "--version" {
-			fmt.Println("Version: ", Version)
+			fmt.Println("Version:", Version)
 			os.Exit(0)
 		} else {
 			fmt.Println("Only one argument passed")
