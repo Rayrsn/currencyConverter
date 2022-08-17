@@ -15,7 +15,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Linux
-        path: ./weather-Cli
+        path: ./currencyConverter
 
   build-win: 
     runs-on: windows-latest
@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Windows
-        path: ./weather-Cli.exe
+        path: ./currencyConverter.exe
 
 
   build-mac:
@@ -42,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MacOS
-        path: ./weather-Cli
+        path: ./currencyConverter
 
