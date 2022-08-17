@@ -2,7 +2,7 @@ name: go
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build-lin:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Linux
-        path: ./currencyConverter
+        path: ./weather-Cli
 
   build-win: 
     runs-on: windows-latest
@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Windows
-        path: ./currencyConverter.exe
+        path: ./weather-Cli.exe
 
 
   build-mac:
@@ -42,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: MacOS
-        path: ./currencyConverter
+        path: ./weather-Cli
 
