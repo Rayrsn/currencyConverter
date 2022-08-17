@@ -14,7 +14,7 @@ var Version = "1.0.0"
 func main() {
 	// Exit conditions
 	if len(os.Args) > 4 {
-		fmt.Println("Excess aguments passed")
+		fmt.Println("Excess arguments passed")
 		os.Exit(1)
 	} else if len(os.Args) == 1 {
 		fmt.Println("No arguments passed")
@@ -31,7 +31,7 @@ func main() {
 
 	if checkIfArgIsCurrency(getFirstArg()) {
 		if len(os.Args) > 3 {
-			fmt.Println("Excess aguments passed")
+			fmt.Println("Excess arguments passed")
 			os.Exit(1)
 		}
 		if checkIfArgIsNumber(getSecondArg()) {

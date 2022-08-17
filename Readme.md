@@ -19,10 +19,16 @@ go build
 ## Usage 💻
 ```bash
 ./currencyConverter usd eur
+_______________________________
+
+1 USD = 0.983081 EUR
 ```
 or alternatively
 ```bash
 ./currencyConverter 10 usd eur
+_______________________________
+
+10 USD = 9.830803 EUR
 ```
 
 
