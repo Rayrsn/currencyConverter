@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+var Version = "1.0.0"
+
 func main() {
 	// Exit conditions
 	if len(os.Args) > 4 {
@@ -18,8 +20,13 @@ func main() {
 		fmt.Println("No arguments passed")
 		os.Exit(1)
 	} else if len(os.Args) == 2 {
-		fmt.Println("Only one argument passed")
-		os.Exit(1)
+		if os.Args[1] == "-v" || os.Args[1] == "--version" {
+			fmt.Println("Version: ", Version)
+			os.Exit(0)
+		} else {
+			fmt.Println("Only one argument passed")
+			os.Exit(1)
+		}
 	}
 
 	if checkIfArgIsCurrency(getFirstArg()) {
