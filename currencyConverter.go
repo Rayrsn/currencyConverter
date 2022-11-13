@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-var Version = "1.0.2"
+var Version = "1.0.3"
 
 func main() {
 	// Exit conditions
