@@ -60,7 +60,7 @@ func main() {
 	}
 
 	// get the response from the link
-	response, err = http.Get(url)
+	response, err = http.Get(url + "?base=" + getFirstArg() + "&symbols=" + getSecondArg())
 	if err != nil {
 		fmt.Println(err)
 	}
