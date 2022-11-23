@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-var Version = "1.0.4"
+var Version = "1.0.5"
 
 func main() {
 	// Exit conditions
@@ -48,21 +48,25 @@ func main() {
 	if checkIfArgIsCurrency(getFirstArg()) {
 		if checkIfArgIsCurrency(getSecondArg()) {
 			url = mainUrl + "?" + "base=" + getFirstArg()
+			// get the response from the link
+			response, err = http.Get(url + "&symbols=" + getSecondArg())
+			if err != nil {
+				fmt.Println(err)
+			}
 		} else {
 			fmt.Println("Second argument is not a currency")
 			os.Exit(1)
 		}
 	} else if checkIfArgIsNumber(getFirstArg()) {
 		url = mainUrl + "?" + "base=" + getSecondArg() + "&" + "amount=" + getFirstArg()
+		// get the response from the link
+		response, err = http.Get(url + "&symbols=" + getThirdArg())
+		if err != nil {
+			fmt.Println(err)
+		}
 	} else {
 		fmt.Println("Invalid arguments")
 		os.Exit(1)
-	}
-
-	// get the response from the link
-	response, err = http.Get(url + "?base=" + getFirstArg() + "&symbols=" + getSecondArg())
-	if err != nil {
-		fmt.Println(err)
 	}
 
 	// parse the response as json
