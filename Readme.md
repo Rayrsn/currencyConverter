@@ -8,7 +8,7 @@
 </div>
 
 ## Features 🏆
-* Supports up to 170 currencies
+* Supports up to 150+ currencies, including common Cryptocurrencies
 
 
 ## Building 🔨
@@ -42,7 +42,7 @@ _______________________________
 
 
 ## Acknowledgments and FAQ 📚
-List of every available currency symbol: [https://api.exchangerate.host/symbols](https://api.exchangerate.host/symbols)
+List of every available currency, token and cryptocurrency symbol: [https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json](https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json)
 
 ## TODO
 * Add support for cryptocurrencies
