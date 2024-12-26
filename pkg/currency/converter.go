@@ -14,7 +14,7 @@ type CurrencyResponse struct {
 
 func NewConverter() *Converter {
     return &Converter{
-        BaseURL: "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/",
+        BaseURL: "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/",
     }
 }
 
