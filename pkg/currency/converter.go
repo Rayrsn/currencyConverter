@@ -7,6 +7,11 @@ import (
 	"strings"
 )
 
+type CurrencyResponse struct {
+    Date     string                 `json:"date"`
+    Currency map[string]interface{} `json:",inline"`
+}
+
 func NewConverter() *Converter {
     return &Converter{
         BaseURL: "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/",
@@ -14,7 +19,7 @@ func NewConverter() *Converter {
 }
 
 func (c *Converter) Convert(amount float64, from, to string) (float64, error) {
-    url := c.BaseURL + strings.ToLower(from) + "/" + strings.ToLower(to) + ".min.json"
+    url := c.BaseURL + strings.ToLower(from) + ".min.json"
     
     response, err := http.Get(url)
     if err != nil {
@@ -27,9 +32,14 @@ func (c *Converter) Convert(amount float64, from, to string) (float64, error) {
         return 0, err
     }
 
-    rate, ok := result[strings.ToLower(to)].(float64)
-    if !ok {
-        return 0, fmt.Errorf("invalid rate conversion")
+    rates, exists := result[strings.ToLower(from)].(map[string]interface{})
+    if !exists {
+        return 0, fmt.Errorf("currency %s not found", from)
+    }
+
+    rate, exists := rates[strings.ToLower(to)].(float64)
+    if !exists {
+        return 0, fmt.Errorf("exchange rate for %s not found", to)
     }
 
     return amount * rate, nil
